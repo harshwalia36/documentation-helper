@@ -3,10 +3,8 @@ import getpass
 
 from langchain.document_loaders import ReadTheDocsLoader,RecursiveUrlLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-# from langchain.embeddings import OpenAIEmbeddings
 from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import Pinecone
-import pinecone
+
 from langchain.vectorstores import FAISS
 
 
@@ -16,11 +14,6 @@ HUGGINGFACEHUB_API_TOKEN = os.environ.get("HUGGINGFACEHUB_API_TOKEN")
 # Uncomment the following line if you need to initialize FAISS with no AVX2 optimization
 # os.environ['FAISS_NO_AVX2'] = '1'
 
-
-# pinecone.init(
-#     api_key=os.environ["PINECONE_API_KEY"],
-#     environment=os.environ["PINECONE_ENVIRONMENT_REGION"],
-# )
 
 def ingest_docs()->None:
     loader=RecursiveUrlLoader(url='https://python.langchain.com/docs/modules/')
